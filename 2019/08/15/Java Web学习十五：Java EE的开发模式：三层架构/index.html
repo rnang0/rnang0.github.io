@@ -1,0 +1,118 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Java Web学习十五：Java EE的开发模式：三层架构va Web学习十四：jstl | rnang0 Blog</title><meta name="description" content="一：Java EE开发模式模式，也就是我们常常讲究的“套路”，是历代程序员总结出的一套约定俗成的设计模式。 （1）Java EE 经历过的模式： 曾经的model1模式： 技术组成：jsp + JavaBean model1的弊端呢也是显而易见的，随着业务的复杂性，导致了jsp里面代码十分的混乱。 现在的model2模式： 技术组成：jsp + servlet + javabean  model2"><meta name="keywords" content="JavaEE三层架构"><meta name="author" content="rnang0"><meta name="copyright" content="rnang0"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="dns-prefetch" href="https://fonts.googleapis.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="dns-prefetch" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Java Web学习十五：Java EE的开发模式：三层架构va Web学习十四：jstl"><meta name="twitter:description" content="一：Java EE开发模式模式，也就是我们常常讲究的“套路”，是历代程序员总结出的一套约定俗成的设计模式。 （1）Java EE 经历过的模式： 曾经的model1模式： 技术组成：jsp + JavaBean model1的弊端呢也是显而易见的，随着业务的复杂性，导致了jsp里面代码十分的混乱。 现在的model2模式： 技术组成：jsp + servlet + javabean  model2"><meta name="twitter:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWczLmRvdWJhbmlvLmNvbS92aWV3L25vdGUvbC9wdWJsaWMvcDYwMzM2MTczLndlYnA"><meta property="og:type" content="article"><meta property="og:title" content="Java Web学习十五：Java EE的开发模式：三层架构va Web学习十四：jstl"><meta property="og:url" content="http://yoursite.com/2019/08/15/Java%20Web%E5%AD%A6%E4%B9%A0%E5%8D%81%E4%BA%94%EF%BC%9AJava%20EE%E7%9A%84%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F%EF%BC%9A%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84/"><meta property="og:site_name" content="rnang0 Blog"><meta property="og:description" content="一：Java EE开发模式模式，也就是我们常常讲究的“套路”，是历代程序员总结出的一套约定俗成的设计模式。 （1）Java EE 经历过的模式： 曾经的model1模式： 技术组成：jsp + JavaBean model1的弊端呢也是显而易见的，随着业务的复杂性，导致了jsp里面代码十分的混乱。 现在的model2模式： 技术组成：jsp + servlet + javabean  model2"><meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWczLmRvdWJhbmlvLmNvbS92aWV3L25vdGUvbC9wdWJsaWMvcDYwMzM2MTczLndlYnA"><meta property="article:published_time" content="2019-08-14T16:00:00.000Z"><meta property="article:modified_time" content="2020-05-20T03:10:28.830Z"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = 'false'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="http://yoursite.com/2019/08/15/Java%20Web%E5%AD%A6%E4%B9%A0%E5%8D%81%E4%BA%94%EF%BC%9AJava%20EE%E7%9A%84%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F%EF%BC%9A%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84/"><link rel="prev" title="Java Web学习十六：事务&amp;银行转账Demo" href="http://yoursite.com/2019/08/17/Java%20Web%E5%AD%A6%E4%B9%A0%E5%8D%81%E5%85%AD%EF%BC%9A%E4%BA%8B%E5%8A%A1&amp;%E5%AE%8C%E6%88%90%E9%93%B6%E8%A1%8C%E8%BD%AC%E8%B4%A6%E6%A8%A1%E5%9E%8B/"><link rel="next" title="Java Web学习十三：EL表达式" href="http://yoursite.com/2019/08/11/Java%20Web%E5%AD%A6%E4%B9%A0%E5%8D%81%E4%B8%89%EF%BC%9AEL/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'none',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: true  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/autor.JPG" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">67</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">92</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-mars"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><i class="fa fa-arrow-right on" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一：Java-EE开发模式"><span class="toc-text">一：Java EE开发模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二：MVC"><span class="toc-text">二：MVC</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三：Java-EE-的MVC—三层架构"><span class="toc-text">三：Java EE 的MVC—三层架构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四：案例实现—显示商城商品"><span class="toc-text">四：案例实现—显示商城商品</span></a></li></ol></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWczLmRvdWJhbmlvLmNvbS92aWV3L25vdGUvbC9wdWJsaWMvcDYwMzM2MTczLndlYnA)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">rnang0 Blog</a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-mars"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">Java Web学习十五：Java EE的开发模式：三层架构va Web学习十四：jstl</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2019-08-15 00:00:00"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2019-08-15</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-05-20 11:10:28"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-05-20</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/JavaWeb/">JavaWeb</a></span></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h1 id="一：Java-EE开发模式"><a href="#一：Java-EE开发模式" class="headerlink" title="一：Java EE开发模式"></a>一：Java EE开发模式</h1><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWcxLmRvdWJhbmlvLmNvbS92aWV3L25vdGUvbC9wdWJsaWMvcDYwMzM1NzY4LndlYnA" alt=""><br>模式，也就是我们常常讲究的“套路”，是历代程序员总结出的一套<strong>约定俗成的设计模式。</strong></p>
+<p><strong>（1）Java EE 经历过的模式：</strong></p>
+<p>曾经的model1模式：</p>
+<p>技术组成：jsp + JavaBean</p>
+<p>model1的弊端呢也是显而易见的，随着业务的复杂性，导致了jsp里面代码十分的混乱。</p>
+<p>现在的model2模式：</p>
+<p>技术组成：jsp + servlet + javabean </p>
+<p><strong>model2的优点：</strong></p>
+<p><strong>开发中使用各个技术擅长的方面，其中servlet擅长处理业务的Java代码，jsp擅长页面的显示。</strong></p>
+<p><strong>所以就引申出我们现在的MVC模式：—web开发的设计模式</strong></p>
+<h1 id="二：MVC"><a href="#二：MVC" class="headerlink" title="二：MVC"></a>二：MVC</h1><p>前面说到MVC就是web开发的设计模式（web开发都有的），MVC指的是：</p>
+<p>*<em>M: Model — 模型 javaBean（遵循一种固定方法的类）来封装数据。 *</em></p>
+<p><strong>V：View  — 试图 jsp 单纯的进行页面的显示</strong></p>
+<p><strong>C：Controller  — 控制器 Servlet：获取数据，对数据进行封装–转发数据–指派给jsp页面来显示数据</strong></p>
+<h1 id="三：Java-EE-的MVC—三层架构"><a href="#三：Java-EE-的MVC—三层架构" class="headerlink" title="三：Java EE 的MVC—三层架构"></a>三：Java EE 的MVC—三层架构</h1><p>（1）我们知道在之前我们服务器开发的时候，把所有的操作基本上都写在了servlet里面，这就使得模块化的思想不能体现，也使servlet十分复杂,功能太多.</p>
+<p>所以我们依据MVC模式来为Java EE 构建了一种开发模式，称为Java EE的三层架构。</p>
+<p><strong>（2）在服务器的开发时，分为三层：<br>web层：收集页面的数据，封装数据，指定响应jsp页面（与客户端进行对接交互）</strong></p>
+<p><strong>service层：顾名思义 来进行复杂业务处理和运算的</strong> </p>
+<p><strong>dao层 ：这层主要是与数据库进行交互</strong><br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWczLmRvdWJhbmlvLmNvbS92aWV3L25vdGUvbC9wdWJsaWMvcDYwMzM2MTczLndlYnA" alt=""><br>（3）开发实践时 三层架构通过我们编译器的包结构来体现</p>
+<p>domain：是我们的实体类，里面会存放我们的JavaBean类</p>
+<p>utils：是我们的工具类，繁琐的代码编写成工具类可使代码清晰<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWcxLmRvdWJhbmlvLmNvbS92aWV3L25vdGUvbC9wdWJsaWMvcDYwMzM1OTI3LndlYnA" alt=""></p>
+<h1 id="四：案例实现—显示商城商品"><a href="#四：案例实现—显示商城商品" class="headerlink" title="四：案例实现—显示商城商品"></a>四：案例实现—显示商城商品</h1><p>我们总共就依据我们的三层架构分为三个方向来编写代码，实现这个demo。<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWczLmRvdWJhbmlvLmNvbS92aWV3L25vdGUvbC9wdWJsaWMvcDYwMzM3NTA0LndlYnA" alt=""><br>1.准备工作：</p>
+<p>搭建好IDEA开发环境（web开发），连接Tomcat服务器，连接MySQL数据库，检查数据库中数据完整</p>
+<p><strong>导入必须的lib包以及配置文件：</strong></p>
+<p>（1）由于要用到<strong>数据库和连接池</strong>，我们会导入<strong>c3p0以及dbutils（特有工具类）和我们mysql-connector</strong></p>
+<p>（2）由于我们的jsp文件要动态显示，要用到<strong>jstl标准标签库</strong>，所以会导入<strong>jstl和standard</strong><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWczLmRvdWJhbmlvLmNvbS92aWV3L25vdGUvbC9wdWJsaWMvcDYwMzM2NDQyLndlYnA" alt=""><br>（3）由于要使用连接池dbutils工具类，所以我们还需要导入c3p0的配置文件，写好连接数据库的配置<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWczLmRvdWJhbmlvLmNvbS92aWV3L25vdGUvbC9wdWJsaWMvcDYwMzM2NTExLndlYnA" alt=""><br><strong>2. 导入前端所给的jsp页面（里面有header和footer等等），放在web下即可</strong><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWczLmRvdWJhbmlvLmNvbS92aWV3L25vdGUvbC9wdWJsaWMvcDYwMzM2NTQyLndlYnA" alt=""><br><strong>3. 搭建好三层架构，web service dao，并创建domain实例和编写好的utils工具类</strong><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWczLmRvdWJhbmlvLmNvbS92aWV3L25vdGUvbC9wdWJsaWMvcDYwMzM2NzIyLndlYnA" alt=""><br>domain的实例代码和utils工具类的代码跳过—————————-</p>
+<p>第一层：web层–servlet类</p>
+<p>首先先将请求传至service的进行业务操作，创建一个service对象和一个存储数据的集合list，进入service的findAllProduct方法（）</p>
+<p>里面通过操作，拿取出并存储数据，然后转发给jsp页面进行显示。</p>
+<p>先将数据存储到request域中，在转发给jsp页面。<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWczLmRvdWJhbmlvLmNvbS92aWV3L25vdGUvbC9wdWJsaWMvcDYwMzM3MjgzLndlYnA" alt=""><br>第二层：service层</p>
+<p>由于我们此demo中没有什么特别的业务操作，所以就只有调用dao层的方法，进入dao层。<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWcxLmRvdWJhbmlvLmNvbS92aWV3L25vdGUvbC9wdWJsaWMvcDYwMzM3MzU3LndlYnA" alt=""><br>第三层：dao层</p>
+<p>利用QueryRunner核心类通过dbutils来用SQL语句操作数据库，拿取到所有的数据存储到list集合中，<strong>再依次将list return回我们的web层进行数据的交互。</strong><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWczLmRvdWJhbmlvLmNvbS92aWV3L25vdGUvbC9wdWJsaWMvcDYwMzM3MDYxLndlYnA" alt=""></p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">rnang0</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yoursite.com/2019/08/15/Java%20Web%E5%AD%A6%E4%B9%A0%E5%8D%81%E4%BA%94%EF%BC%9AJava%20EE%E7%9A%84%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F%EF%BC%9A%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84/">http://yoursite.com/2019/08/15/Java%20Web%E5%AD%A6%E4%B9%A0%E5%8D%81%E4%BA%94%EF%BC%9AJava%20EE%E7%9A%84%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F%EF%BC%9A%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yoursite.com" target="_blank">rnang0 Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JavaEE%E4%B8%89%E5%B1%82%E6%9E%B6%E6%9E%84/">JavaEE三层架构</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button button--primary button--animated"> <i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="post-qr-code__img" src="/img/wechat.jpg" alt="微信"/><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="post-qr-code__img" src="/img/alipay.jpg" alt="支付寶"/><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2019/08/17/Java%20Web%E5%AD%A6%E4%B9%A0%E5%8D%81%E5%85%AD%EF%BC%9A%E4%BA%8B%E5%8A%A1&amp;%E5%AE%8C%E6%88%90%E9%93%B6%E8%A1%8C%E8%BD%AC%E8%B4%A6%E6%A8%A1%E5%9E%8B/"><img class="prev_cover" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWczLmRvdWJhbmlvLmNvbS92aWV3L25vdGUvbC9wdWJsaWMvcDYwNDYwNjM0LndlYnA" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Java Web学习十六：事务&amp;银行转账Demo</div></div></a></div><div class="next-post pull_right"><a href="/2019/08/11/Java%20Web%E5%AD%A6%E4%B9%A0%E5%8D%81%E4%B8%89%EF%BC%9AEL/"><img class="next_cover" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWcxLmRvdWJhbmlvLmNvbS92aWV3L25vdGUvbC9wdWJsaWMvcDYwMjUwMDE5LndlYnA" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Java Web学习十三：EL表达式</div></div></a></div></nav></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By rnang0</div><div class="footer_custom_text">Hi, welcome to my <a href="http://rnang0.github.io/" target="_blank" rel="noopener">blog</a>!</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script id="ribbon_piao" mobile="false" src="/js/third-party/piao.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script></body></html>

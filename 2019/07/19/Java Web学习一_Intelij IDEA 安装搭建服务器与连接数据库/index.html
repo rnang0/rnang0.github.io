@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Java Web学习一:Intelij IDEA 安装搭建服务器与连接数据库 | rnang0 Blog</title><meta name="description" content="一.Intelij IDEA俗称IDEA的 Intelij IDEA 编译器 公认的java最好的开发工具之一。它在智能化的带给我们代码自动提示和版本工具，以及插件帮助的同时，势必会给我们带来很多问题。 这里推荐大家安装企业版，也就是专业版。推荐学习修改host文件然后通过百度获得IDEA激活码实现激活。 二.安装与配置这个IDEA安装及破解 网站有详细的安装教程，适合像我这种开始什么都不知道的小"><meta name="keywords" content="Intelij IDEA"><meta name="author" content="rnang0"><meta name="copyright" content="rnang0"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="dns-prefetch" href="https://fonts.googleapis.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="dns-prefetch" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Java Web学习一:Intelij IDEA 安装搭建服务器与连接数据库"><meta name="twitter:description" content="一.Intelij IDEA俗称IDEA的 Intelij IDEA 编译器 公认的java最好的开发工具之一。它在智能化的带给我们代码自动提示和版本工具，以及插件帮助的同时，势必会给我们带来很多问题。 这里推荐大家安装企业版，也就是专业版。推荐学习修改host文件然后通过百度获得IDEA激活码实现激活。 二.安装与配置这个IDEA安装及破解 网站有详细的安装教程，适合像我这种开始什么都不知道的小"><meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200519170733182.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjA1MDg1,size_16,color_FFFFFF,t_70"><meta property="og:type" content="article"><meta property="og:title" content="Java Web学习一:Intelij IDEA 安装搭建服务器与连接数据库"><meta property="og:url" content="http://yoursite.com/2019/07/19/Java%20Web%E5%AD%A6%E4%B9%A0%E4%B8%80_Intelij%20IDEA%20%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8E%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93/"><meta property="og:site_name" content="rnang0 Blog"><meta property="og:description" content="一.Intelij IDEA俗称IDEA的 Intelij IDEA 编译器 公认的java最好的开发工具之一。它在智能化的带给我们代码自动提示和版本工具，以及插件帮助的同时，势必会给我们带来很多问题。 这里推荐大家安装企业版，也就是专业版。推荐学习修改host文件然后通过百度获得IDEA激活码实现激活。 二.安装与配置这个IDEA安装及破解 网站有详细的安装教程，适合像我这种开始什么都不知道的小"><meta property="og:image" content="https://img-blog.csdnimg.cn/20200519170733182.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjA1MDg1,size_16,color_FFFFFF,t_70"><meta property="article:published_time" content="2019-07-18T16:00:00.000Z"><meta property="article:modified_time" content="2020-05-20T02:24:10.623Z"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = 'false'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="http://yoursite.com/2019/07/19/Java%20Web%E5%AD%A6%E4%B9%A0%E4%B8%80_Intelij%20IDEA%20%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8E%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93/"><link rel="prev" title="Java Web学习二：JDBC连接MySQL数据库" href="http://yoursite.com/2019/07/20/Java%20Web%E5%AD%A6%E4%B9%A0%E4%BA%8C%EF%BC%9AJDBC%E8%BF%9E%E6%8E%A5MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'none',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: true  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/autor.JPG" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">67</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">92</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-mars"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><i class="fa fa-arrow-right on" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-Intelij-IDEA"><span class="toc-text">一.Intelij IDEA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-安装与配置"><span class="toc-text">二.安装与配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-创建一个新的Java-web-项目，配置好tomcat服务器"><span class="toc-text">三.创建一个新的Java web 项目，配置好tomcat服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四-连接Mysql数据库"><span class="toc-text">四.连接Mysql数据库</span></a></li></ol></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(https://img-blog.csdnimg.cn/20200519170733182.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjA1MDg1,size_16,color_FFFFFF,t_70)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">rnang0 Blog</a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-mars"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">Java Web学习一:Intelij IDEA 安装搭建服务器与连接数据库</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2019-07-19 00:00:00"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2019-07-19</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-05-20 10:24:10"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-05-20</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/JavaWeb/">JavaWeb</a></span></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h2 id="一-Intelij-IDEA"><a href="#一-Intelij-IDEA" class="headerlink" title="一.Intelij IDEA"></a>一.Intelij IDEA</h2><p>俗称IDEA的 Intelij IDEA 编译器 公认的java最好的开发工具之一。它在智能化的带给我们代码自动提示和版本工具，以及插件帮助的同时，势必会给我们带来很多问题。</p>
+<p>这里推荐大家安装企业版，也就是专业版。推荐学习<strong>修改host文件</strong>然后通过百度获得<strong>IDEA激活码</strong>实现激活。</p>
+<h2 id="二-安装与配置"><a href="#二-安装与配置" class="headerlink" title="二.安装与配置"></a>二.安装与配置</h2><p>这个<strong>IDEA安装及破解</strong> 网站有详细的安装教程，适合像我这种开始什么都不知道的小白。</p>
+<p><strong>IDEA详细配置与使用教程</strong><br>目前根据自己需求设置一些style，但功能选项建议不要少，特别一定要设置里面自动调取所有包功能，不然很麻烦。<br><img src="https://img-blog.csdnimg.cn/20200519170733182.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjA1MDg1,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="三-创建一个新的Java-web-项目，配置好tomcat服务器"><a href="#三-创建一个新的Java-web-项目，配置好tomcat服务器" class="headerlink" title="三.创建一个新的Java web 项目，配置好tomcat服务器"></a>三.创建一个新的Java web 项目，配置好tomcat服务器</h2><p>开始我也是什么都不知道，跟着视频资料上面eclipse傻不拉几的创建，心想着总差不多吧。就跟学c的时候用的vc++，dc，vb，以及现在还在写的VS（巨好用）。</p>
+<p>结果IDEA的智能虽然好用，但配置繁琐远及我们的想象，包括对掉lib包和配置web Artifacts，这些我觉得比eclipse复杂一百倍。</p>
+<p>这里有一个创建一个新的JavaWeb配置的讲解 </p>
+<p> 创建发布JavaWeb项目   博主地址：<a href="https://blog.csdn.net/daijin888888/article/details/50525890" target="_blank" rel="noopener">用 IntelliJ IDEA 15.x 创建并发布JavaWeb项目</a><br>其中一定要注意调包问题，一定要在开头配置IDEA时设置自动调包</p>
+<h2 id="四-连接Mysql数据库"><a href="#四-连接Mysql数据库" class="headerlink" title="四.连接Mysql数据库"></a>四.连接Mysql数据库</h2><p>这些网上都是有教程的，一定要跟着一步一步走。 <a href="https://www.cnblogs.com/jiqing9006/p/5975771.html" target="_blank" rel="noopener">IDEA连接MySQL数据库</a></p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">rnang0</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yoursite.com/2019/07/19/Java%20Web%E5%AD%A6%E4%B9%A0%E4%B8%80_Intelij%20IDEA%20%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8E%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93/">http://yoursite.com/2019/07/19/Java%20Web%E5%AD%A6%E4%B9%A0%E4%B8%80_Intelij%20IDEA%20%E5%AE%89%E8%A3%85%E6%90%AD%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8E%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yoursite.com" target="_blank">rnang0 Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Intelij-IDEA/">Intelij IDEA</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button button--primary button--animated"> <i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="post-qr-code__img" src="/img/wechat.jpg" alt="微信"/><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="post-qr-code__img" src="/img/alipay.jpg" alt="支付寶"/><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2019/07/20/Java%20Web%E5%AD%A6%E4%B9%A0%E4%BA%8C%EF%BC%9AJDBC%E8%BF%9E%E6%8E%A5MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/"><img class="prev_cover" src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWczLmRvdWJhbmlvLmNvbS92aWV3L25vdGUvbC9wdWJsaWMvcDU5ODIxOTI0LndlYnA" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Java Web学习二：JDBC连接MySQL数据库</div></div></a></div></nav></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By rnang0</div><div class="footer_custom_text">Hi, welcome to my <a href="http://rnang0.github.io/" target="_blank" rel="noopener">blog</a>!</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script id="ribbon_piao" mobile="false" src="/js/third-party/piao.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script></body></html>
